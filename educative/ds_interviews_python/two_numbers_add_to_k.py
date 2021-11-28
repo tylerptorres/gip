@@ -10,6 +10,7 @@ def find_sum(lst, k):
     return -1
 
 
+# O(N log N) + O(N) T | O(1) S
 def find_sum_sorted(lst, k):
     lst.sort()  # O(N log N) + O(N)
 
