@@ -1,4 +1,5 @@
 
+# O(N) T | O(1) S
 def execute_optimal(sorted_arr, target):
     left, right = 0, len(sorted_arr) - 1
 
