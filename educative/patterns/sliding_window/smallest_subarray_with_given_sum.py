@@ -1,6 +1,7 @@
 import math
 
 
+# O(N) T | O(1) S
 def execute_optimal(arr, s):
     min_length = math.inf
     window_start = 0
