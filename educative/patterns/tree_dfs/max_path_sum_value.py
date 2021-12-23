@@ -1,26 +1,17 @@
 from TreeNode import TreeNode
 
-# O(N * logN) T & S
-def execute(root):
+# O(N) T | O(N) S
+def execute(root, current_sum=0):
     if root is None:
-        return
-
-    all_paths = []
-    helper(root, all_paths)
-
-    return all_paths
-
-
-def helper(root, all_paths, current=[]):
-    current.append(root.val)
+        return 0
 
     if root.left is None and root.right is None:
-        all_paths.append(list(current))
-    else:
-        helper(root.left, all_paths, current)
-        helper(root.right, all_paths, current)
+        return current_sum + root.val
 
-    current.pop()
+    return max(
+        execute(root.left, current_sum + root.val),
+        execute(root.right, current_sum + root.val),
+    )
 
 
 if __name__ == "__main__":
