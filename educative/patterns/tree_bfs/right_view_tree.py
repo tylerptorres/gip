@@ -2,30 +2,23 @@ from TreeNode import TreeNode
 from collections import deque
 
 
-# O(N) T & S
 def execute(root):
-
-    result = []
     queue = deque([root])
+    result = []
 
     while queue:
         sz = len(queue)
-        level = deque()
 
-        for _ in range(sz):
+        for i in range(sz):
             current = queue.popleft()
 
-            if len(result) % 2 == 0:
-                level.append(current.val)
-            else:
-                level.appendleft(current.val)
+            if i == sz - 1:
+                result.append(current.val)
 
-            if current.left is not None:
+            if current.left:
                 queue.append(current.left)
-            if current.right is not None:
+            if current.right:
                 queue.append(current.right)
-
-        result.append(list(level))  # O(N)
 
     return result
 
